@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <title>Movie Time</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1><span class="fa fa-anchor"></span> Movie Page</h1> <!--interpolate with actual movie name-->
+        <h1><span class="fa fa-anchor"> <%=title %></span></h1> <!--interpolate with actual movie name-->
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+        <div>
+          <h3>Movies + Ratings</h3>
+          <ul class="ratings">
+          <% for(var i=0; i<ratings.length; i++) {%>
+            <li class="rating">
+              <span><%= ratings[i].date %></span>
+              <span><%= ratings[i].comment %></span>
+              <% for (let j=0; j<ratings[i].star; j++) {%>
+                <span><i class="fa fa-star" aria-hidden="true"></i></span>
+              <% } %>
+              <span><%= ratings[i].rating %></span>
+            </li>
+          <% } %>
+          </ul>
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>

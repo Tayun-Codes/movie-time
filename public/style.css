@@ -1,7 +1,26 @@
 body{
   padding-top:80px;
   word-wrap:break-word;
+  background: var(--darkGreen);
+  color: white;
 }
 img{
   height: 200px;
+}
+:root {
+  --darkGreen: #044526;
+  --lightGreen: #09683a;
+}
+
+.jumbotron {
+  background-color: var(--lightGreen);
+  color: white;
+}
+
+.well {
+  background-color: var(--lightGreen);
+}
+
+.rated {
+  color: var(--lightGreen);
 }

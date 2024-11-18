@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>21 Savage Fan Site</title>
+    <title>Movie Time</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
@@ -19,15 +19,15 @@
         <!-- LOCAL INFORMATION -->
         <div class="col-sm-6">
             <div class="well">
-                <h3><span class="fa fa-user"></span> Local</h3>
+                <h3><span class="fa fa-user"></span> User Info</h3>
 
                 <% if (user.local.email) { %>
                     <p>
                         <strong>id</strong>: <%= user._id %><br>
+                        <!-- <strong>username</strong>: <%= user.local.username %><br> -->
                         <strong>email</strong>: <%= user.local.email %><br>
-                        <strong>password</strong>: <%= user.local.password %>
+                        <!-- <strong>password</strong>: <%= user.local.password %> -->
                     </p>
-
                     <a href="/unlink/local" class="btn btn-default">Unlink</a>
                 <% } else { %>
                     <a href="/connect/local" class="btn btn-default">Connect Local</a>
@@ -36,25 +36,34 @@
             </div>
         </div>
         <div class="col-sm-6">
-          <h3>Messages</h3>
+          <h3>Movies + Ratings</h3>
           <ul class="messages">
           <% for(var i=0; i<messages.length; i++) {%>
             <li class="message">
-              <span><%= messages[i].name %></span>
-              <span><%= messages[i].msg %></span>
-              <span><%= messages[i].likes %></span>
-              <span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
-              <span><i class="fa fa-thumbs-down" aria-hidden="true"></i></span>
-              <span class='del'>delete</span> 
+              <span class='title'><strong><a href=<%= `/movie/${messages[i].href}` %>> <%= messages[i].title %></a></strong></span>
+              <span><%= messages[i].date %></span>
+              <span><em><%= messages[i].comment %></em></span>
+              <span><i class="fa fa-star 1" aria-hidden="true"></i></span>
+              <span><i class="fa fa-star 2" aria-hidden="true"></i></span>
+              <span><i class="fa fa-star 3" aria-hidden="true"></i></span>
+              <span><i class="fa fa-star 4" aria-hidden="true"></i></span>
+              <span><i class="fa fa-star 5" aria-hidden="true"></i></span>
+              <span><%= messages[i].star %></span>
+              <span><i class="fa fa-pencil-square-o" title="edit comment" aria-hidden="true"></i></span>
+              <span><i class="fa fa-cloud-upload" title="publish to public forums" aria-hidden="true"></i></span>
+              <!-- <span><i class="fa fa-cloud-download" title="remove from public forums" aria-hidden="true"></i></span> -->
+              <span class='del'><i class="fa fa-trash-o" title="delete rating" aria-hidden="true"></i></span>
+              <!-- <i class="fa-solid fa-star"></i> solid star -->
             </li>
           <% } %>
           </ul>
 
-          <h2>Add a message</h2>
+          <h2>Add a Movie and the Date you watched it</h2>
         <% if (user.local.email) { %>
-          <form action="/messages" method="POST">
-            <input type="text" value="<%= user.local.email %>" name="name">
-            <input type="text" placeholder="message" name="msg">
+          <form action='/profileboard' method="POST">
+            <input type="text" placeholder="Movie Name" name="title">
+            <input type="text" placeholder="Date MM/DD/YYYY" name="date"> <!--need to check date sorting-->
+            <input type="text" placeholder="Comments?" name="comment">
             <button type="submit">Submit</button>
           </form>
         </div>

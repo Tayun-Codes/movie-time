@@ -15,16 +15,15 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
-var configDB = require('./config/database.js');
 
-var db
+var configDB = require('./database.js'); //to connect your own database read instructions at the end of README
 
 // configuration ===============================================================
 mongoose.connect(configDB.url, (err, database) => {
   if (err) return console.log(err)
   db = database
   require('./app/routes.js')(app, passport, db);
-}); // connect to our database
+}); //connect to our database using database.js
 
 require('./config/passport')(passport); // pass passport for configuration
 
@@ -40,7 +39,7 @@ app.set('view engine', 'ejs'); // set up ejs for templating
 
 // required for passport
 app.use(session({
-    secret: 'rcbootcamp2021b', // session secret
+    secret: 'rcbootcamp2024b', // session secret
     resave: true,
     saveUninitialized: true
 }));
