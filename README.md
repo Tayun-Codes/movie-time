@@ -1,7 +1,12 @@
 # Movie Forum Full-Stack App
 This is a full-stack application that features private personal movie ratings that can be published to a communal forum.
 Create an account or login and access your personal list. Add the movie title, the date you watched it, as well as a comment. Once the movie is inputted you can click on the stars to rate them.
-You can also choose to publish your comment to a public forum 
+You can also choose to publish your comment to a public forum and view other published reviews on the movie page.
+
+![스크린샷 2024-11-25 001337](https://github.com/user-attachments/assets/e73bbe32-7d59-4fc2-bb61-547fe7040022)
+![스크린샷 2024-11-25 003609](https://github.com/user-attachments/assets/0f3b8f1e-39c6-41e5-a81f-1dc61736f96e)
+![스크린샷 2024-11-25 003619](https://github.com/user-attachments/assets/479f28d8-3452-45f8-ab66-0ee04d4d33c2)
+
 
 ## How It's Made:
 The Movie Forum is built using the following technologies:
